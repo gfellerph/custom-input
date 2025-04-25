@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <style>
+      body {
+        background: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo"></div>
+
+    <script type="module">
+      import { html, render } from 'lit';
+      import '../dist/src/custom-input.js';
+
+      render(
+        html`
+          <input type="text" list="ice-cream-flavors" />
+          <custom-input
+            clearable
+            placeholder="really long placeholder"
+            atalist="Chocolate, Coconut, Mint, Strawberry"
+            suggest="chocolate"
+            autocomplete="none"
+          >
+            <span slot="prefix">CHF</span>
+            <span slot="postfix">$</span>
+            some light-dom
+          </custom-input>
+          <custom-input suggest="coca-cola"> some light-dom </custom-input>
+        `,
+        document.querySelector('#demo'),
+      );
+    </script>
+  </body>
+</html>
